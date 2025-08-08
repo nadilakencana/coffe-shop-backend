@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Replicate = require("replicate");
 
-const menu = require('../data/data_coffe_shop.js');
+const {menu, tables} = require('../data/data_coffe_shop.js');
+
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
@@ -18,22 +19,7 @@ router.get('/', (req, res) => {
 // search item menu 
 
 router.get('/search', (req, res) => {
-//  const query = req.query.q;
 
-//   if (!query) {
-//     return res.json([]); 
-//   }
-
-//   const queryLowerCase = query.toLowerCase();
-//   const hasilPencarian = menu.filter(item => 
-//     item.nama.toLowerCase().includes(queryLowerCase) ||
-//     item.deskripsi.toLowerCase().includes(queryLowerCase) ||
-//     item.tags.some(tag => tag.toLowerCase().includes(queryLowerCase))
-//   );
-
-//   res.json(hasilPencarian);
-
-// LOG 1: Cek apakah data menu berhasil diimpor
   console.log('Data menu yang tersedia:', menu); 
 
   const query = req.query.q;
@@ -44,16 +30,15 @@ router.get('/search', (req, res) => {
 
   const queryLowerCase = query.toLowerCase();
   
-  // LOG 2: Cek apakah query dari URL diterima dengan benar
   console.log('Query yang dicari:', queryLowerCase); 
 
   const hasilPencarian = menu.filter(item =>
-    item.nama.toLowerCase().includes(queryLowerCase) ||
-    item.deskripsi.toLowerCase().includes(queryLowerCase) ||
+    item.name.toLowerCase().includes(queryLowerCase) ||
+    item.description.toLowerCase().includes(queryLowerCase) ||
     item.tags.some(tag => tag.toLowerCase().includes(queryLowerCase))
   );
 
-  // LOG 3: Cek hasil akhir dari proses filter
+  
   console.log('Hasil akhir filter:', hasilPencarian); 
 
   res.json(hasilPencarian);
@@ -63,45 +48,92 @@ router.get('/search', (req, res) => {
 // api untuk rekomendasi menu paling laris
 router.post('/recommend', async (req, res) => {
   const { userInput } = req.body;
-  const isAskingForBestSeller = userInput.includes('laris') || 
-  userInput.includes('populer') || 
-  userInput.includes('best seller');
+  const lowerCaseInput = userInput.toLowerCase();
 
+  let filteredMenu = [...menu]; // Salin menu asli untuk kita filter
   let promptContext = "";
+  let baseQuestion = `Berdasarkan daftar yang sudah disaring ini, berikan 1-2 rekomendasi terbaik dan jelaskan dengan ramah mengapa menu ini cocok untuk pelanggan.`;
 
-  if (isAskingForBestSeller) {
-        const menuTerlaris = [...menu].sort((a, b) => b.jumlahTerjual - a.jumlahTerjual);
-        
-        const top3Menu = menuTerlaris.slice(0, 3);
-        
-        const menuInfo = top3Menu.map(item => `- ${item.nama} (terjual ${item.jumlahTerjual} gelas): ${item.deskripsi}`).join('\n');
-        promptContext = `
-            Berdasarkan data penjualan, berikut adalah 3 menu terlaris kami:
-            ${menuInfo}
-            Tolong jelaskan kepada pelanggan dengan ramah mengapa menu-menu ini sangat populer dan rekomendasikan kepada mereka.
-        `;
+  // =================================================================
+  // LANGKAH 1 & 2: EKSTRAKSI NIAT & PRA-FILTER DATA
+  // =================================================================
 
-    } else {
-        const menuString = menu.map(item => `- ${item.nama}: ${item.deskripsi}`).join('\n');
-        promptContext = `
-            Berikut adalah daftar menu yang tersedia:
-            ${menuString}
-            Berdasarkan daftar menu di atas, jawab pertanyaan pelanggan berikut: "${userInput}"
-        `;
+  // Skenario 1: Rekomendasi Makanan/Minuman Spesifik
+  if (lowerCaseInput.includes('makanan') || lowerCaseInput.includes('food')) {
+    filteredMenu = filteredMenu.filter(item => item.category === 'snack' || item.category === 'main-course');
+  }
+  if (lowerCaseInput.includes('minuman') || lowerCaseInput.includes('drink')) {
+    filteredMenu = filteredMenu.filter(item => item.category === 'coffee' || item.category === 'non-coffee');
+  }
+  if (lowerCaseInput.includes('non-kopi') || lowerCaseInput.includes('non coffee')) {
+    filteredMenu = filteredMenu.filter(item => item.category === 'non-coffee');
+  }
+  if (lowerCaseInput.includes('snack') || lowerCaseInput.includes('makanan ringan')) {
+    filteredMenu = filteredMenu.filter(item => item.category === 'snack');
+  }
+
+  // Skenario 2: Pengecualian (Contoh: "selain cokelat")
+  if (lowerCaseInput.includes('selain') || lowerCaseInput.includes('except')) {
+    const keyword = lowerCaseInput.split('selain')[1]?.trim() || lowerCaseInput.split('except')[1]?.trim();
+    if (keyword) {
+      filteredMenu = filteredMenu.filter(item => !item.name.toLowerCase().includes(keyword) && !item.tags.includes(keyword) && !item.category.toLowerCase().includes(keyword));
     }
+  }
 
-    const finalPrompt = `
-      <|system|>
-      Anda adalah Barista AI di "Kopi Kita" yang sangat ramah dan informatif. Tugas Anda adalah memberikan rekomendasi yang meyakinkan.
-      <|user|>
-      ${promptContext}
-      <|assistant|>
-    `;
+  // Skenario 3: Best Seller
+  if (lowerCaseInput.includes('best seller') || lowerCaseInput.includes('terlaris')) {
+    filteredMenu.sort((a, b) => b.soldCount - a.soldCount);
+    filteredMenu = filteredMenu.slice(0, 5); // Ambil 5 teratas untuk diberikan ke AI
+    baseQuestion = `Berikut adalah 5 item terlaris kami dari kategori yang relevan. Tolong jelaskan kepada pelanggan mengapa item ini begitu populer dan rekomendasikan 1-2 yang terbaik.`;
+  }
+  
+  // Skenario 4: Pairing (Contoh: "snack yang cocok untuk Americano")
+  if (lowerCaseInput.includes('cocok untuk') || lowerCaseInput.includes('pairs with')) {
+    const drinkName = lowerCaseInput.split('cocok untuk')[1]?.trim() || lowerCaseInput.split('pairs with')[1]?.trim();
+    const targetDrink = menu.find(d => d.name.toLowerCase() === drinkName);
+
+    if (targetDrink) {
+      // Aturan pairing sederhana
+      if (targetDrink.tags.includes('strong') || targetDrink.tags.includes('bitter')) {
+        // Kopi pahit cocok dengan yang manis
+        filteredMenu = menu.filter(item => item.category === 'snack' && item.tags.includes('sweet'));
+        baseQuestion = `Pelanggan memesan ${targetDrink.name}. Berdasarkan daftar snack manis ini, rekomendasikan 1-2 yang paling cocok untuk menemani kopi pahit dan jelaskan kenapa.`;
+      } else if (targetDrink.tags.includes('sweet') || targetDrink.tags.includes('creamy')) {
+        // Minuman manis cocok dengan yang gurih
+        filteredMenu = menu.filter(item => item.category === 'snack' && item.tags.includes('savory'));
+        baseQuestion = `Pelanggan memesan ${targetDrink.name}. Dari daftar snack gurih ini, rekomendasikan 1-2 yang paling pas untuk menyeimbangkan rasa manis minumannya dan jelaskan kenapa.`;
+      }
+    }
+  }
+
+  // =================================================================
+  // LANGKAH 3: MEMBUAT PROMPT DINAMIS
+  // =================================================================
+
+  const menuInfo = filteredMenu.map(item => `- ${item.name}: ${item.description}`).join('\n');
+  
+  promptContext = `
+    Seorang pelanggan bertanya: "${userInput}"
+    
+    Berikut adalah daftar menu yang sudah saya saring dan relevan dengan permintaannya:
+    ${menuInfo}
+
+    Tugasmu: ${baseQuestion}
+  `;
+
+  const finalPrompt = `
+    <|system|>
+    You are a friendly and world-class AI Barista at "Kopi Kita". Your task is to give thoughtful and convincing recommendations based on the curated list provided. Never suggest items outside of the provided list.
+    <|user|>
+    ${promptContext}
+    <|assistant|>
+  `;
+
 
 
     try {
         const output = await replicate.run(
-            'ibm-granite/granite-3.3-8b-instruct',
+            'ibm-granite/granite-speech-3.3-8b',
             { input: { prompt: finalPrompt, max_new_tokens: 512 } }
         );
         res.json({ recommendation: output.join("") });
