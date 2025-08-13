@@ -118,7 +118,7 @@ const menu = [
     description: "A super rich and creamy chocolate drink, made with real melted chocolate. Available hot or iced.",
     price: 30000,
     category: "non-coffee",
-    image: "http://localhost:5001/images/chocolate.jpg",
+    image: "http://localhost:5001/images/Chocolate Overload.jpg",
     tags: ["chocolate", "creamy", "kids-favorite"],
     soldCount: 1100
   },
@@ -129,7 +129,7 @@ const menu = [
     description: "Earthy and smooth, premium matcha from Kyoto with your choice of steamed milk. A zen moment in a cup.",
     price: 35000,
     category: "non-coffee",
-    image: "http://localhost:5001/images/matcha-latte.jpg",
+    image: "http://localhost:5001/images/Kyoto Matcha Latte.jpg",
     tags: ["matcha", "earthy", "creamy"],
     soldCount: 1450
   },
@@ -140,7 +140,7 @@ const menu = [
     description: "A refreshing blend of real strawberries, mint, and soda water. Tastes like summer.",
     price: 28000,
     category: "non-coffee",
-    image: "http://localhost:5001/images/strawberry-soda.jpg",
+    image: "http://localhost:5001/images/Strawberry Breeze.jpg",
     tags: ["fruity", "refreshing", "soda"],
     soldCount: 900
   },
@@ -151,7 +151,7 @@ const menu = [
     description: "A tall glass of our freshly brewed black tea, sweetened with lychee syrup and whole lychees.",
     price: 25000,
     category: "non-coffee",
-    image: "http://localhost:5001/images/lychee-tea.jpg",
+    image: "http://localhost:5001/images/Lychee Iced Tea.jpg",
     tags: ["iced-tea", "fruity", "refreshing"],
     soldCount: 1600
   },
@@ -162,7 +162,7 @@ const menu = [
     description: "The iconic flavor of a red velvet cake with a hint of cocoa and cream cheese, turned into a cozy, caffeine-free latte.",
     price: 34000,
     category: "non-coffee",
-    image: "http://localhost:5001/images/red-velvet-latte.jpg",
+    image: "http://localhost:5001/images/Red Velvet Latte.jpg",
     tags: ["sweet", "creamy", "red-velvet"],
     soldCount: 1250
   },
@@ -173,7 +173,7 @@ const menu = [
     description: "A thick and creamy smoothie with sweet mango, a splash of yogurt, and a hint of orange. Pure sunshine.",
     price: 38000,
     category: "non-coffee",
-    image: "http://localhost:5001/images/mango-smoothie.jpg",
+    image: "http://localhost:5001/images/Mango Sunshine Smoothie.jpg",
     tags: ["smoothie", "healthy", "fruity"],
     soldCount: 850
   },
@@ -196,7 +196,7 @@ const menu = [
     description: "Crispy shoestring fries tossed in truffle oil and topped with grated Parmesan cheese. You can't just have one.",
     price: 35000,
     category: "snack",
-    image: "http://localhost:5001/images/truffle-fries.jpg",
+    image: "http://localhost:5001/images/Truffle Fries.jpg",
     tags: ["savory", "fries", "sharing"],
     soldCount: 2500
   },
@@ -207,7 +207,7 @@ const menu = [
     description: "Steamed edamame pods tossed with sea salt, garlic, and a spicy chili blend. Healthy yet addictive.",
     price: 28000,
     category: "snack",
-    image: "http://localhost:5001/images/edamame.jpg",
+    image: "http://localhost:5001/images/Spicy Edamame.jpg",
     tags: ["healthy", "spicy", "vegan"],
     soldCount: 1300
   },
@@ -218,7 +218,7 @@ const menu = [
     description: "A flaky, buttery croissant with a sweet almond paste filling, topped with toasted almonds and powdered sugar.",
     price: 28000,
     category: "snack",
-    image: "http://localhost:5001/images/almond-croissant.jpg",
+    image: "http://localhost:5001/images/Almond Croissant.jpg",
     tags: ["pastry", "sweet", "almond"],
     soldCount: 2900
   },
@@ -229,7 +229,7 @@ const menu = [
     description: "A soft, fluffy, oven-baked cinnamon roll with a generous amount of cream cheese frosting. The ultimate comfort food.",
     price: 30000,
     category: "snack",
-    image: "http://localhost:5001/images/cinnamon-roll.jpg",
+    image: "http://localhost:5001/images/Cinnamon Roll.jpg",
     tags: ["sweet", "pastry", "cinnamon"],
     soldCount: 2650
   },
@@ -240,7 +240,7 @@ const menu = [
     description: "A warm tortilla filled with a melted mix of mozzarella, cheddar, and parmesan cheese. Served with a side of salsa.",
     price: 40000,
     category: "snack",
-    image: "http://localhost:5001/images/quesadilla.jpg",
+    image: "http://localhost:5001/images/Triple Cheese Quesadilla.jpg",
     tags: ["cheese", "savory", "sharing"],
     soldCount: 1100
   },
@@ -251,7 +251,7 @@ const menu = [
     description: "A thick, moist slice of our homemade banana bread, with just the right amount of sweetness. Ask to have it toasted!",
     price: 25000,
     category: "snack",
-    image: "http://localhost:5001/images/banana-bread.jpg",
+    image: "http://localhost:5001/images/Banana Bread Slice.jpg",
     tags: ["cake", "sweet", "homemade"],
     soldCount: 1950
   },
@@ -262,7 +262,7 @@ const menu = [
     description: "A bowl of crispy chicken wings tossed in our signature sweet and spicy sauce. Perfect for sharing.",
     price: 45000,
     category: "snack",
-    image: "http://localhost:5001/images/chicken-wings.jpg",
+    image: "http://localhost:5001/images/Spicy Chicken Wings.jpg",
     tags: ["savory", "spicy", "chicken"],
     soldCount: 1400
   },
@@ -274,7 +274,7 @@ const menu = [
     description: "A simple yet delicious pasta dish with garlic, olive oil, chili flakes, and parsley. Add chicken or shrimp if you'd like.",
     price: 55000,
     category: "main-course",
-    image: "http://localhost:5001/images/aglio-olio.jpg",
+    image: "http://localhost:5001/images/Aglio e Olio Pasta.jpg",
     tags: ["pasta", "savory", "classic"],
     soldCount: 800
   },
@@ -285,7 +285,7 @@ const menu = [
     description: "Spaghetti in a rich and creamy egg-based sauce with smoked beef and a generous amount of Parmesan cheese.",
     price: 65000,
     category: "main-course",
-    image: "http://localhost:5001/images/carbonara.jpg",
+    image: "http://localhost:5001/images/Creamy Carbonara.jpg",
     tags: ["pasta", "creamy", "cheese"],
     soldCount: 950
   },
@@ -296,7 +296,7 @@ const menu = [
     description: "A juicy beef patty with melted cheddar cheese, lettuce, tomato, and our secret sauce in a soft brioche bun. Served with fries.",
     price: 75000,
     category: "main-course",
-    image: "http://localhost:5001/images/cheeseburger.jpg",
+    image: "http://localhost:5001/images/Classic Cheeseburger.jpg",
     tags: ["burger", "beef", "savory"],
     soldCount: 1150
   },
@@ -307,7 +307,7 @@ const menu = [
     description: "A tender grilled chicken breast served with your choice of mushroom or black pepper sauce, with a side of mashed potatoes and veggies.",
     price: 80000,
     category: "main-course",
-    image: "http://localhost:5001/images/chicken-steak.jpg",
+    image: "http://localhost:5001/images/Grilled Chicken Steak.jpg",
     tags: ["chicken", "healthy", "grilled"],
     soldCount: 750
   },
@@ -318,7 +318,7 @@ const menu = [
     description: "Our special fried rice with chicken satay, a sunny-side-up egg, and crackers. A complete and satisfying meal.",
     price: 50000,
     category: "main-course",
-    image: "http://localhost:5001/images/nasi-goreng.jpg",
+    image: "http://localhost:5001/images/Nasi Goreng Special.jpg",
     tags: ["fried-rice", "local-favorite", "spicy"],
     soldCount: 1350
   },
@@ -329,7 +329,7 @@ const menu = [
     description: "Crispy battered dory fish served with a side of thick-cut fries and our homemade tartar sauce. A timeless classic.",
     price: 68000,
     category: "main-course",
-    image: "http://localhost:5001/images/fish-chips.jpg",
+    image: "http://localhost:5001/images/Fish and Chips.jpg",
     tags: ["fish", "fried", "savory"],
     soldCount: 850
   }
