@@ -14,13 +14,13 @@ router.get('/', (req, res) => {
 
    // 1. 4 Makanan Paling Laris (Gabungan dari Main Course & Snack)
   const bestSellingFood = menu
-    .filter(item => item.category === 'main-course' || item.category === 'snack')
+    .filter(item => item.category === 'main-course')
     .sort((a, b) => b.soldCount - a.soldCount) // Urutkan dari penjualan terbanyak
     .slice(0, 4); // Ambil 4 item teratas
 
   // 2. 4 Minuman Paling Laris (Gabungan dari Coffee & Non-Coffee)
   const bestSellingDrinks = menu
-    .filter(item => item.category === 'coffee' || item.category === 'non-coffee')
+    .filter(item => item.category === 'coffee')
     .sort((a, b) => b.soldCount - a.soldCount)
     .slice(0, 4);
 

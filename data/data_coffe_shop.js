@@ -7,7 +7,7 @@ const menu = [
     description: "Just a straight-up, no-fuss shot of our best espresso topped with hot water. For the purists.",
     price: 25000,
     category: "coffee",
-    image: "https://example.com/images/americano.jpg",
+    image: "http://localhost:5001/images/Classic Americano.jpg",
     tags: ["classic", "strong", "black-coffee"],
     soldCount: 1200
   },
@@ -18,7 +18,7 @@ const menu = [
     description: "A dreamy mix of steamed milk, vanilla, a shot of espresso, and a caramel drizzle on top. It's like a hug in a mug.",
     price: 35000,
     category: "coffee",
-    image: "https://example.com/images/caramel-macchiato.jpg",
+    image: "http://localhost:5001/images/Caramel Cloud Macchiato.jpg",
     tags: ["sweet", "caramel", "creamy"],
     soldCount: 2150
   },
@@ -29,7 +29,7 @@ const menu = [
     description: "Our signature espresso with fresh milk and a sweet kick from authentic palm sugar. You can't go wrong with this one.",
     price: 30000,
     category: "coffee",
-    image: "https://example.com/images/palm-sugar-latte.jpg",
+    image: "http://localhost:5001/images/Palm Sugar Latte.jpg",    
     tags: ["local-favorite", "sweet", "creamy"],
     soldCount: 3500
   },
@@ -40,7 +40,7 @@ const menu = [
     description: "Smooth espresso, steamed milk, and a hint of real vanilla bean. Simple, sweet, and always a good idea.",
     price: 32000,
     category: "coffee",
-    image: "https://example.com/images/vanilla-latte.jpg",
+    image: "http://localhost:5001/images/Vanilla Bean Latte.jpg",
     tags: ["vanilla", "sweet", "classic"],
     soldCount: 1800
   },
@@ -51,7 +51,7 @@ const menu = [
     description: "Rich espresso meets decadent chocolate sauce and steamed milk, topped with whipped cream. It's happiness in a cup.",
     price: 36000,
     category: "coffee",
-    image: "https://example.com/images/mocha.jpg",
+    image: "http://localhost:5001/images/Mocha Madness.jpg",
     tags: ["chocolate", "mocha", "sweet"],
     soldCount: 1550
   },
@@ -62,7 +62,7 @@ const menu = [
     description: "A cozy latte with the warm, toasty flavor of hazelnut. Perfect for a rainy day.",
     price: 32000,
     category: "coffee",
-    image: "https://example.com/images/hazelnut-latte.jpg",
+    image: "http://localhost:5001/images/Hazelnut Heaven.jpg",
     tags: ["hazelnut", "nutty", "sweet"],
     soldCount: 1300
   },
@@ -73,7 +73,7 @@ const menu = [
     description: "A perfect balance of strong espresso and velvety steamed milk. Bolder than a latte, smoother than a cappuccino.",
     price: 28000,
     category: "coffee",
-    image: "https://example.com/images/flat-white.jpg",
+    image: "http://localhost:5001/images/Flat White.jpg",
     tags: ["strong", "smooth", "classic"],
     soldCount: 1900
   },
@@ -84,7 +84,7 @@ const menu = [
     description: "Our coffee steeped overnight for a super smooth, low-acid, and extra-caffeinated kick. Served over ice.",
     price: 30000,
     category: "coffee",
-    image: "https://example.com/images/cold-brew.jpg",
+    image: "http://localhost:5001/images/Cold Brew Black.jpg",
     tags: ["cold-brew", "strong", "smooth"],
     soldCount: 2200
   },
@@ -95,7 +95,7 @@ const menu = [
     description: "Our signature cold brew with a sweet and savory salted caramel cold foam on top. The best of both worlds.",
     price: 38000,
     category: "coffee",
-    image: "https://example.com/images/salted-caramel-cold-brew.jpg",
+    image: "http://localhost:5001/images/Salted Caramel Cold Brew.jpg",
     tags: ["cold-brew", "sweet", "salted-caramel"],
     soldCount: 2800
   },
@@ -106,7 +106,7 @@ const menu = [
     description: "A scoop of premium vanilla ice cream drowned in a hot shot of espresso. Simple, elegant, and delicious.",
     price: 35000,
     category: "coffee",
-    image: "https://example.com/images/affogato.jpg",
+    image: "http://localhost:5001/images/Affogato.png",
     tags: ["dessert", "espresso", "sweet"],
     soldCount: 950
   },
@@ -118,7 +118,7 @@ const menu = [
     description: "A super rich and creamy chocolate drink, made with real melted chocolate. Available hot or iced.",
     price: 30000,
     category: "non-coffee",
-    image: "https://example.com/images/chocolate.jpg",
+    image: "http://localhost:5001/images/chocolate.jpg",
     tags: ["chocolate", "creamy", "kids-favorite"],
     soldCount: 1100
   },
@@ -129,7 +129,7 @@ const menu = [
     description: "Earthy and smooth, premium matcha from Kyoto with your choice of steamed milk. A zen moment in a cup.",
     price: 35000,
     category: "non-coffee",
-    image: "https://example.com/images/matcha-latte.jpg",
+    image: "http://localhost:5001/images/matcha-latte.jpg",
     tags: ["matcha", "earthy", "creamy"],
     soldCount: 1450
   },
@@ -140,7 +140,7 @@ const menu = [
     description: "A refreshing blend of real strawberries, mint, and soda water. Tastes like summer.",
     price: 28000,
     category: "non-coffee",
-    image: "https://example.com/images/strawberry-soda.jpg",
+    image: "http://localhost:5001/images/strawberry-soda.jpg",
     tags: ["fruity", "refreshing", "soda"],
     soldCount: 900
   },
@@ -151,7 +151,7 @@ const menu = [
     description: "A tall glass of our freshly brewed black tea, sweetened with lychee syrup and whole lychees.",
     price: 25000,
     category: "non-coffee",
-    image: "https://example.com/images/lychee-tea.jpg",
+    image: "http://localhost:5001/images/lychee-tea.jpg",
     tags: ["iced-tea", "fruity", "refreshing"],
     soldCount: 1600
   },
@@ -162,7 +162,7 @@ const menu = [
     description: "The iconic flavor of a red velvet cake with a hint of cocoa and cream cheese, turned into a cozy, caffeine-free latte.",
     price: 34000,
     category: "non-coffee",
-    image: "https://example.com/images/red-velvet-latte.jpg",
+    image: "http://localhost:5001/images/red-velvet-latte.jpg",
     tags: ["sweet", "creamy", "red-velvet"],
     soldCount: 1250
   },
@@ -173,7 +173,7 @@ const menu = [
     description: "A thick and creamy smoothie with sweet mango, a splash of yogurt, and a hint of orange. Pure sunshine.",
     price: 38000,
     category: "non-coffee",
-    image: "https://example.com/images/mango-smoothie.jpg",
+    image: "http://localhost:5001/images/mango-smoothie.jpg",
     tags: ["smoothie", "healthy", "fruity"],
     soldCount: 850
   },
@@ -184,7 +184,7 @@ const menu = [
     description: "A robust, full-bodied black tea that goes perfectly with a splash of milk. A timeless classic.",
     price: 22000,
     category: "non-coffee",
-    image: "https://example.com/images/hot-tea.jpg",
+    image: "http://localhost:5001/images/hot-tea.jpg",
     tags: ["hot-tea", "classic", "black-tea"],
     soldCount: 700
   },
@@ -196,7 +196,7 @@ const menu = [
     description: "Crispy shoestring fries tossed in truffle oil and topped with grated Parmesan cheese. You can't just have one.",
     price: 35000,
     category: "snack",
-    image: "https://example.com/images/truffle-fries.jpg",
+    image: "http://localhost:5001/images/truffle-fries.jpg",
     tags: ["savory", "fries", "sharing"],
     soldCount: 2500
   },
@@ -207,7 +207,7 @@ const menu = [
     description: "Steamed edamame pods tossed with sea salt, garlic, and a spicy chili blend. Healthy yet addictive.",
     price: 28000,
     category: "snack",
-    image: "https://example.com/images/edamame.jpg",
+    image: "http://localhost:5001/images/edamame.jpg",
     tags: ["healthy", "spicy", "vegan"],
     soldCount: 1300
   },
@@ -218,7 +218,7 @@ const menu = [
     description: "A flaky, buttery croissant with a sweet almond paste filling, topped with toasted almonds and powdered sugar.",
     price: 28000,
     category: "snack",
-    image: "https://example.com/images/almond-croissant.jpg",
+    image: "http://localhost:5001/images/almond-croissant.jpg",
     tags: ["pastry", "sweet", "almond"],
     soldCount: 2900
   },
@@ -229,7 +229,7 @@ const menu = [
     description: "A soft, fluffy, oven-baked cinnamon roll with a generous amount of cream cheese frosting. The ultimate comfort food.",
     price: 30000,
     category: "snack",
-    image: "https://example.com/images/cinnamon-roll.jpg",
+    image: "http://localhost:5001/images/cinnamon-roll.jpg",
     tags: ["sweet", "pastry", "cinnamon"],
     soldCount: 2650
   },
@@ -240,7 +240,7 @@ const menu = [
     description: "A warm tortilla filled with a melted mix of mozzarella, cheddar, and parmesan cheese. Served with a side of salsa.",
     price: 40000,
     category: "snack",
-    image: "https://example.com/images/quesadilla.jpg",
+    image: "http://localhost:5001/images/quesadilla.jpg",
     tags: ["cheese", "savory", "sharing"],
     soldCount: 1100
   },
@@ -251,7 +251,7 @@ const menu = [
     description: "A thick, moist slice of our homemade banana bread, with just the right amount of sweetness. Ask to have it toasted!",
     price: 25000,
     category: "snack",
-    image: "https://example.com/images/banana-bread.jpg",
+    image: "http://localhost:5001/images/banana-bread.jpg",
     tags: ["cake", "sweet", "homemade"],
     soldCount: 1950
   },
@@ -262,7 +262,7 @@ const menu = [
     description: "A bowl of crispy chicken wings tossed in our signature sweet and spicy sauce. Perfect for sharing.",
     price: 45000,
     category: "snack",
-    image: "https://example.com/images/chicken-wings.jpg",
+    image: "http://localhost:5001/images/chicken-wings.jpg",
     tags: ["savory", "spicy", "chicken"],
     soldCount: 1400
   },
@@ -274,7 +274,7 @@ const menu = [
     description: "A simple yet delicious pasta dish with garlic, olive oil, chili flakes, and parsley. Add chicken or shrimp if you'd like.",
     price: 55000,
     category: "main-course",
-    image: "https://example.com/images/aglio-olio.jpg",
+    image: "http://localhost:5001/images/aglio-olio.jpg",
     tags: ["pasta", "savory", "classic"],
     soldCount: 800
   },
@@ -285,7 +285,7 @@ const menu = [
     description: "Spaghetti in a rich and creamy egg-based sauce with smoked beef and a generous amount of Parmesan cheese.",
     price: 65000,
     category: "main-course",
-    image: "https://example.com/images/carbonara.jpg",
+    image: "http://localhost:5001/images/carbonara.jpg",
     tags: ["pasta", "creamy", "cheese"],
     soldCount: 950
   },
@@ -296,7 +296,7 @@ const menu = [
     description: "A juicy beef patty with melted cheddar cheese, lettuce, tomato, and our secret sauce in a soft brioche bun. Served with fries.",
     price: 75000,
     category: "main-course",
-    image: "https://example.com/images/cheeseburger.jpg",
+    image: "http://localhost:5001/images/cheeseburger.jpg",
     tags: ["burger", "beef", "savory"],
     soldCount: 1150
   },
@@ -307,7 +307,7 @@ const menu = [
     description: "A tender grilled chicken breast served with your choice of mushroom or black pepper sauce, with a side of mashed potatoes and veggies.",
     price: 80000,
     category: "main-course",
-    image: "https://example.com/images/chicken-steak.jpg",
+    image: "http://localhost:5001/images/chicken-steak.jpg",
     tags: ["chicken", "healthy", "grilled"],
     soldCount: 750
   },
@@ -318,7 +318,7 @@ const menu = [
     description: "Our special fried rice with chicken satay, a sunny-side-up egg, and crackers. A complete and satisfying meal.",
     price: 50000,
     category: "main-course",
-    image: "https://example.com/images/nasi-goreng.jpg",
+    image: "http://localhost:5001/images/nasi-goreng.jpg",
     tags: ["fried-rice", "local-favorite", "spicy"],
     soldCount: 1350
   },
@@ -329,7 +329,7 @@ const menu = [
     description: "Crispy battered dory fish served with a side of thick-cut fries and our homemade tartar sauce. A timeless classic.",
     price: 68000,
     category: "main-course",
-    image: "https://example.com/images/fish-chips.jpg",
+    image: "http://localhost:5001/images/fish-chips.jpg",
     tags: ["fish", "fried", "savory"],
     soldCount: 850
   }
